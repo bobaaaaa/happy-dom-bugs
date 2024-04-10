@@ -3,6 +3,7 @@ import { render, screen, waitFor } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { Input } from '../components/Input';
 import { CopyToClipboardButton } from '../components/CopyToClipboardButton';
+import { Collapsible } from '../components/Collapsible';
 
 export const run = () => {
   test(`should not trigger the <button type="reset" /> when press enter on the <input /> field.
@@ -29,5 +30,16 @@ export const run = () => {
       const copiedText = await navigator.clipboard.readText();
       return expect(copiedText).toBe('foo bar');
     });
+  });
+
+  test('should switch the [open] property on the <details /> element when clicking on the <summary />', async () => {
+    const user = userEvent.setup();
+    render(<Collapsible />);
+
+    const collapsible = screen.getByRole('dialog');
+    expect(collapsible).toHaveProperty('open', false);
+
+    await user.click(screen.getByText('Click me'));
+    expect(collapsible).toHaveProperty('open', true);
   });
 };

@@ -12,3 +12,4 @@ npm run test
 ## Browser Features
 
 - `navigator.clipboard` did not save the text
+- changing `open` property of `<details />`
