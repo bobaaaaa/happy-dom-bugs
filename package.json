@@ -4,7 +4,8 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "test": "vitest run"
+    "test": "vitest run",
+    "outdated": "npx npm-check --update"
   },
   "dependencies": {
     "@testing-library/react": "14.3.0",
