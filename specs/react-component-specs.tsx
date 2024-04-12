@@ -4,11 +4,12 @@ import { userEvent } from '@testing-library/user-event';
 import { Input } from '../components/Input';
 import { CopyToClipboardButton } from '../components/CopyToClipboardButton';
 import { Collapsible } from '../components/Collapsible';
+import { Switch } from '../components/Switch';
 
 export const run = () => {
   test(`should not trigger the <button type="reset" /> when press enter on the <input /> field.
     This is the Firefox & Chrome default behavior.
-    If we put a [id] and [htmlFor] attribute on the <input /> and <label /> element, it works.`, async () => {
+    If we put a [id] and [htmlFor] attribute on <input /> and <label /> element, it works.`, async () => {
     const user = userEvent.setup();
     const resetSpy = vi.fn();
 
@@ -41,5 +42,16 @@ export const run = () => {
 
     await user.click(screen.getByText('Click me'));
     expect(collapsible).toHaveProperty('open', true);
+  });
+
+  test('should call the [onChange] handler on <input /> element only once when clicking on the surrounding <label />', async () => {
+    const user = userEvent.setup();
+    const onChangeSpy = vi.fn();
+    render(<Switch onChange={onChangeSpy} />);
+
+    const switchElement = screen.getByRole('switch');
+    await user.click(switchElement);
+
+    expect(onChangeSpy).toHaveBeenCalledTimes(1);
   });
 };

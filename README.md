@@ -8,6 +8,7 @@ npm run test
 ## Events
 
 - `enter` event triggers `<button type="clear" />`
+- `change` event triggers `<input />` twice
 
 ## Browser Features
 
