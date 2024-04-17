@@ -14,3 +14,7 @@ npm run test
 
 - `navigator.clipboard` did not save the text
 - changing `open` property of `<details />`
+
+## a11y
+
+- `<img />` alt text is valid name

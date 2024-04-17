@@ -5,6 +5,7 @@ import { Input } from '../components/Input';
 import { CopyToClipboardButton } from '../components/CopyToClipboardButton';
 import { Collapsible } from '../components/Collapsible';
 import { Switch } from '../components/Switch';
+import { IconButton } from '../components/IconButton';
 
 export const run = () => {
   test(`should not trigger the <button type="reset" /> when press enter on the <input /> field.
@@ -53,5 +54,10 @@ export const run = () => {
     await user.click(switchElement);
 
     expect(onChangeSpy).toHaveBeenCalledTimes(1);
+  });
+
+  test('should find <button /> by name of the inside <img /> alt text', () => {
+    render(<IconButton />);
+    expect(screen.getByRole('button', { name: 'img-alt-text' })).toBeInTheDocument();
   });
 };
