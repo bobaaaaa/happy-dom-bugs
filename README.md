@@ -14,6 +14,8 @@ npm run test
 
 - `navigator.clipboard` did not save the text
 - changing `open` property of `<details />`
+- `MediaError` missing: https://developer.mozilla.org/en-US/docs/Web/API/MediaError
+- `History` API not 100% implemented: https://developer.mozilla.org/en-US/docs/Web/API/History
 
 ## a11y
 
