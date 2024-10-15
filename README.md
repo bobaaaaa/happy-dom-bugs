@@ -7,8 +7,8 @@ npm run test
 
 ## Events
 
-- `enter` event triggers `<button type="clear" />`
-- `change` event triggers `<input />` twice
+- `enter` event triggers `<button type="clear" />` - ✅ fixed since 15.x
+- `change` event triggers `<input />` twice - ✅ fixed since 15.x
 
 ## Browser Features
 
