@@ -7,6 +7,18 @@ import { Collapsible } from '../components/Collapsible';
 import { Switch } from '../components/Switch';
 
 export const run = () => {
+  test('should not throw error when rendering <iframe />', () => {
+    expect(() => {
+      render(<iframe src="http://localhost:3000" />);
+    }).not.toThrow();
+  });
+
+  test('should not throw error when rendering <script />', () => {
+    expect(() => {
+      render(<script src="http://localhost:3000"></script>);
+    }).not.toThrow();
+  });
+
   test(`should not trigger the <button type="reset" /> when press enter on the <input /> field.
     This is the Firefox & Chrome default behavior.
     If we put a [id] and [htmlFor] attribute on <input /> and <label /> element, it works.`, async () => {
